@@ -12,6 +12,8 @@ fun main(args: Array<String>) {
 
     printPlayerStatus(auraColor, isBlessed, name, healthStatus)
 
+    printPlayerStatus(healthStatus = "status", auraColor = "NONE", name = "Madrigal", isBlessed = true)
+
     castFireball()
 }
 
