@@ -15,6 +15,13 @@ fun main(args: Array<String>) {
     printPlayerStatus(healthStatus = "status", auraColor = "NONE", name = "Madrigal", isBlessed = true)
 
     castFireball()
+
+    shouldReturnAString()
+}
+
+fun shouldReturnAString(): String {
+    TODO("implement the string building functionality here to return a string")
+    println("unreachable")
 }
 
 private fun castFireball(numFireballs: Int = 2) =
