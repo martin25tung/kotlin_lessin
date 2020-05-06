@@ -24,8 +24,7 @@ private fun printPlayerStatus(auraColor: String, isBlessed: Boolean, name: Strin
     println("$name $healthStatus")
 }
 
-private fun formatHealthStatus(healthPoints: Int, isBlessed: Boolean):String {
-    val healthStatus = when (healthPoints) {
+private fun formatHealthStatus(healthPoints: Int, isBlessed: Boolean) = when (healthPoints) {
         100 -> "is in excellent condition!"
         in 90..99 -> "has a few scratches."
         in 75..89 -> if (isBlessed) {
@@ -36,11 +35,8 @@ private fun formatHealthStatus(healthPoints: Int, isBlessed: Boolean):String {
         in 15..74 -> "looks pretty hurt."
         else -> "is in awful condition!"
     }
-    return healthStatus
-}
 
-private fun auraColor(isBlessed: Boolean, healthPoints: Int, isImmortal: Boolean): String {
-    val auraVisible = isBlessed && healthPoints > 50 || isImmortal
+
+private fun auraColor(isBlessed: Boolean, healthPoints: Int, isImmortal: Boolean) = isBlessed && healthPoints > 50 || isImmortal
     val auraColor = if (auraVisible) "GREEN" else "NONE"
-    return auraColor
-}
+    
