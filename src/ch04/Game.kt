@@ -14,13 +14,23 @@ fun main(args: Array<String>) {
 
     printPlayerStatus(healthStatus = "status", auraColor = "NONE", name = "Madrigal", isBlessed = true)
 
-    castFireball()
+    val fireballReport = when(castFireball()){
+        in 1..10 -> "tipsy"
+        in 11..20 -> "sloshed"
+        in 21..30 -> "soused"
+        in 31..40 -> "stewed"
+        else -> "..t0aSt3d"
+    }
+    println(fireballReport)
+
 }
 
 fun shouldReturnAString(): String {
     TODO("implement the string building functionality here to return a string")
     println("unreachable")
 }
+
+private fun castFireball() = (1..50).random()
 
 private fun castFireball(numFireballs: Int = 2) =
     println("A glass of Firebass springs into existence.(x$numFireballs)")
