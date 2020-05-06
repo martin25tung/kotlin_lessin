@@ -15,8 +15,6 @@ fun main(args: Array<String>) {
     printPlayerStatus(healthStatus = "status", auraColor = "NONE", name = "Madrigal", isBlessed = true)
 
     castFireball()
-
-    shouldReturnAString()
 }
 
 fun shouldReturnAString(): String {
@@ -46,8 +44,5 @@ private fun formatHealthStatus(healthPoints: Int, isBlessed: Boolean) = when (he
     }
 
 
-private fun auraColor(isBlessed: Boolean, healthPoints: Int, isImmortal: Boolean): String {
-    val auraVisible = isBlessed && healthPoints > 50 || isImmortal
-    val auraColor = if (auraVisible) "GREEN" else "NONE"
-    return auraColor
-}
+private fun auraColor(isBlessed: Boolean, healthPoints: Int, isImmortal: Boolean) =
+    if (isBlessed && healthPoints > 50 || isImmortal) "GREEN" else "NONE"
