@@ -2,11 +2,21 @@ package ch05
 
 fun main(args: Array<String>) {
 
-    val greetingFunction =
+    runSimulation()
+}
 
-    runSimulation("Guyal", ::printConstructionCost) { playerName, numBuildings ->
+fun runSimulation() {
+    val greetingFunction = configureGreetingFunction()
+    println(greetingFunction("Guyal"))
+}
+
+fun configureGreetingFunction(): (String) -> String{
+    val structureType = "hospitals"
+    var numBuildings = 5
+    return { playerName: String ->
         val currentYear = 2018
-        println("Adding $numBuildings houses")
+        numBuildings += 1
+        println("Adding $numBuildings $structureType")
         "Welcome to SimVillage, $playerName! (copyright $currentYear)"
     }
 }
