@@ -2,13 +2,13 @@ package ch05
 
 fun main(args: Array<String>) {
 
-    val greetingFunction = { playerName: String, numBuildings: Int ->
+    val greetingFunction =
+
+    runSimulation("Guyal") { playerName, numBuildings ->
         val currentYear = 2018
         println("Adding $numBuildings houses")
         "Welcome to SimVillage, $playerName! (copyright $currentYear)"
     }
-
-    runSimulation("Guyal", greetingFunction)
 }
 
 fun runSimulation(playerName: String, greetingFunction: (String, Int) -> String) {
