@@ -6,5 +6,6 @@ fun main(args: Array<String>) {
     if (isJugglingProficient) {
         swordsJuggling = 2
     }
+    swordsJuggling = swordsJuggling!!.plus(1)
     println("You juggle $swordsJuggling swords!")
 }
