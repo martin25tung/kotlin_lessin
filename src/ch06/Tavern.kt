@@ -1,14 +1,14 @@
 package ch06
 
 fun main(args: Array<String>) {
-//    var beverage = readLine()?.capitalize()
+    var beverage = readLine()
 //    beverage = null
-    var beverage = readLine()?.let {
-        if (it.isNotBlank()){
-            it.capitalize()
-        }else {
-            "Buttered Ale"
-        }
+
+    if (beverage != null) {
+        beverage = beverage.capitalize()
+    } else {
+        println("I can't do that without crashing - beerage was null!")
     }
+
     println(beverage)
 }
