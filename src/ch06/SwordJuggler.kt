@@ -1,5 +1,6 @@
 package ch06
 
+import java.lang.Exception
 import java.lang.IllegalStateException
 
 fun main(args: Array<String>) {
@@ -8,8 +9,13 @@ fun main(args: Array<String>) {
     if (isJugglingProficient) {
         swordsJuggling = 2
     }
-    proficiencyCheck(swordsJuggling)
-    swordsJuggling = swordsJuggling!!.plus(1)
+    try {
+        proficiencyCheck(swordsJuggling)
+        swordsJuggling = swordsJuggling!!.plus(1)
+    } catch (e: Exception) {
+        println(e)
+    }
+
     println("You juggle $swordsJuggling swords!")
 }
 
