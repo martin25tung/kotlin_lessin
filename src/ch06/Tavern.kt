@@ -1,7 +1,7 @@
 package ch06
 
 fun main(args: Array<String>) {
-    var beverage = readLine()
+    var beverage = readLine().capitalize()
 //    beverage = null
     println(beverage)
 }
