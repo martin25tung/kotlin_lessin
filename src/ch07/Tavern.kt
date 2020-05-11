@@ -7,6 +7,8 @@ fun main(args: Array<String>) {
 
     val omShymbol = '\u0950'
     println(omShymbol)
+
+    "Dragon's Breath".forEach { println("$it") }
 }
 
 private fun placeOrder(menuData: String) {
