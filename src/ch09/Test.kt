@@ -8,9 +8,32 @@ fun main(args: Array<String>) {
 //    menuFile.setWritable(true)
 //    menuFile.setExecutable(false)
 
-    val menuFile = File("menu-file.txt").apply {
-        setReadable(true)   // implicitly, menuFile.setReadable(true)
-        setWritable(true)
-        setExecutable(false)
-    }
+//    val menuFile = File("menu-file.txt").apply {
+//        setReadable(true)   // implicitly, menuFile.setReadable(true)
+//        setWritable(true)
+//        setExecutable(false)
+//    }
+
+//    val firstItemSquared = listOf(1, 2, 3).first().let { it * it }
+//    println(firstItemSquared)
+
+    val firstElement = listOf(1, 2, 3).first()
+    val firstItemSquared = firstElement * firstElement
+    println(firstItemSquared)
+
+    println(formatGreeting(null))
 }
+
+fun formatGreeting(vipGuest: String?): String{
+    return vipGuest?.let {
+        "Welcome, $it. Please, go straight back - your table is ready."
+    } ?: "Welcome to the tavern. Your'll be seated soon."
+}
+
+//fun formatGreeting(vipGuest: String?): String{
+//    return if ($vipGuest != null){
+//        "Welcome, $$vipGuest. Please, go straight back - your table is ready."
+//    } else {
+//        "Welcome to the tavern. Your'll be seated soon."
+//    }
+//}
