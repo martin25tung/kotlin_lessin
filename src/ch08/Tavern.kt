@@ -25,6 +25,8 @@ fun performPurchase(price: Double) {
     playerGold = remainingGold
     playerSilver = remainingSilver
     displayBalance()
+
+    println(5 - (12 * 0.125))
 }
 
 private fun displayBalance(){
