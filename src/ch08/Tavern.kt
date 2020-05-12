@@ -9,6 +9,8 @@ var playerSilver = 10
 
 fun main(args: Array<String>) {
     placeOrder("shandy,Dragon's Breath, 5.91")
+    placeOrder("shandy,Dragon's Breath, 5.91")
+    placeOrder("shandy,Dragon's Breath, 5.91")
 }
 
 fun performPurchase(price: Double) {
@@ -42,14 +44,18 @@ private fun placeOrder(menuData: String) {
     val message = "Madrigal buys a $name ($type) for $price"
     println(message)
 
-    performPurchase(price.toDouble())
+    if (playerGold + (playerSilver / 100.0) > price.toDouble()) {
+        performPurchase(price.toDouble())
 
-    val phrase = if (name == "Dragon's Breath") {
-        "Madrigal exclaims ${toDragonSpeak("Ah, delicious $name")}"
+        val phrase = if (name == "Dragon's Breath") {
+            "Madrigal exclaims ${toDragonSpeak("Ah, delicious $name")}"
+        } else {
+            "Madrigal says: Thanks for the $name"
+        }
+        println(phrase)
     } else {
-        "Madrigal says: Thanks for the $name"
+        println("餘額不足")
     }
-    println(phrase)
 }
 
 private fun toDragonSpeak(phrase: String) = phrase.replace(Regex("[aeiouAEIOU]")) {
