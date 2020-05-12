@@ -27,7 +27,7 @@ private fun placeOrder(menuData: String) {
 
     val phrase = if (name == "Dragon's Breath") {
 //        "Madrigal exclaims ${toDragonSpeak("Ah, delicious $name")}"
-        "$name: ${toDragonSpeak("IT'S GOT WHAT ADVENTURERS CRAVE!")}"
+        "${name.toUpperCase()} : ${toDragonSpeak("IT'S GOT WHAT ADVENTURERS CRAVE!")}"
     } else {
         "Madrigal says: Thanks for the $name"
     }
