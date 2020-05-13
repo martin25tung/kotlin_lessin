@@ -23,16 +23,20 @@ fun main(args: Array<String>) {
 //
 //    println(formatGreeting(null))
 
-    "Madrigal".run(::nameIsLong)    // false
-    "Polarcubis, Supreme Master of NyetHack"
-        .run(::nameIsLong)
-        .run(::playerCreateMessage)
-        .run(::println)
+//    "Madrigal".run(::nameIsLong)    // false
+//    "Polarcubis, Supreme Master of NyetHack"
+//        .run(::nameIsLong)
+//        .run(::playerCreateMessage)
+//        .run(::println)
+//
+//    println(playerCreateMessage(nameIsLong("Polarcubis, Supreme Master of NyetHack")))
+//
+//    val status = run {
+//        if (healthPoints == 100) "perfect health" else "has injuries"
+//    }
 
-    println(playerCreateMessage(nameIsLong("Polarcubis, Supreme Master of NyetHack")))
-
-    val status = run {
-        if (healthPoints == 100) "perfect health" else "has injuries"
+    val nameTooLong = with("Polarcubis, Supreme Master of NyetHack") {
+        length >= 20
     }
 }
 
