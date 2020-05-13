@@ -39,13 +39,24 @@ fun main(args: Array<String>) {
 //        length >= 20
 //    }
 
-    var fileContents: List<String>
-    File("file.txt")
-        .also {
-            print(it.name)
-        }.also {
-            fileContents = it.readLines()
-        }
+//    var fileContents: List<String>
+//    File("file.txt")
+//        .also {
+//            print(it.name)
+//        }.also {
+//            fileContents = it.readLines()
+//        }
+
+    val fileContents = File("myfile.txt")
+        .takeIf { it.canRead() && it.canWrite() }
+        ?.readText()
+
+    val file = File("myfile.txt")
+    val fileContexts2 = if (file.canRead() && file.canWrite()) {
+        file.readText()
+    } else {
+        null
+    }
 }
 
 fun nameIsLong(name: String) = name.length >= 20
