@@ -17,12 +17,35 @@ fun main(args: Array<String>) {
 //    val firstItemSquared = listOf(1, 2, 3).first().let { it * it }
 //    println(firstItemSquared)
 
-    val firstElement = listOf(1, 2, 3).first()
-    val firstItemSquared = firstElement * firstElement
-    println(firstItemSquared)
+//    val firstElement = listOf(1, 2, 3).first()
+//    val firstItemSquared = firstElement * firstElement
+//    println(firstItemSquared)
+//
+//    println(formatGreeting(null))
 
-    println(formatGreeting(null))
+    "Madrigal".run(::nameIsLong)    // false
+    "Polarcubis, Supreme Master of NyetHack"
+        .run(::nameIsLong)
+        .run(::playerCreateMessage)
+        .run(::println)
+
+    println(playerCreateMessage(nameIsLong("Polarcubis, Supreme Master of NyetHack")))
+
+    val status = run {
+        if (healthPoints == 100) "perfect health" else "has injuries"
+    }
 }
+
+fun nameIsLong(name: String) = name.length >= 20
+
+fun playerCreateMessage(nameTooLong: Boolean): String {
+    return if (nameTooLong) {
+        "Name is too long. Please choose another name."
+    } else {
+        "Welcome, adventurer"
+    }
+}
+
 
 fun formatGreeting(vipGuest: String?): String{
     return vipGuest?.let {
