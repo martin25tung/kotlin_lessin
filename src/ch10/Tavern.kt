@@ -1,4 +1,4 @@
-package ch08
+package ch10
 
 import kotlin.math.roundToInt
 
@@ -6,17 +6,14 @@ const val TAVERN_NAME = "Taernyl's Folly"
 
 var playerGold = 10
 var playerSilver = 10
-val patronList: List<String> = listOf("Eli", "Mordoc", "Sophie")
 
 fun main(args: Array<String>) {
-    placeOrder("shandy,Dragon's Breath, 5.91")
 
-    println(patronList)
 }
 
 fun performPurchase(price: Double) {
     displayBalance()
-    val totalPurse = playerGold + (playerSilver / 100.0)
+    val totalPurse = ch08.playerGold + (ch08.playerSilver / 100.0)
     println("Total purse: $totalPurse")
     println("Purchasing item for $price")
 
@@ -25,15 +22,15 @@ fun performPurchase(price: Double) {
 
     val remainingGold = remainingBalance.toInt()
     val remainingSilver = (remainingBalance % 1 * 100).roundToInt()
-    playerGold = remainingGold
-    playerSilver = remainingSilver
+    ch08.playerGold = remainingGold
+    ch08.playerSilver = remainingSilver
     displayBalance()
 
     println(5 - (12 * 0.125))
 }
 
 private fun displayBalance(){
-    println("Player's purse balance: Gold: $playerGold , Silver: $playerSilver")
+    println("Player's purse balance: Gold: ${ch08.playerGold} , Silver: ${ch08.playerSilver}")
 }
 
 private fun placeOrder(menuData: String) {
@@ -45,14 +42,18 @@ private fun placeOrder(menuData: String) {
     val message = "Madrigal buys a $name ($type) for $price"
     println(message)
 
-    performPurchase(price.toDouble())
+    if (ch08.playerGold + (ch08.playerSilver / 100.0) > price.toDouble()) {
+        performPurchase(price.toDouble())
 
-    val phrase = if (name == "Dragon's Breath") {
-        "Madrigal exclaims ${toDragonSpeak("Ah, delicious $name")}"
+        val phrase = if (name == "Dragon's Breath") {
+            "Madrigal exclaims ${toDragonSpeak("Ah, delicious $name")}"
+        } else {
+            "Madrigal says: Thanks for the $name"
+        }
+        println(phrase)
     } else {
-        "Madrigal says: Thanks for the $name"
+        println("餘額不足")
     }
-    println(phrase)
 }
 
 private fun toDragonSpeak(phrase: String) = phrase.replace(Regex("[aeiouAEIOU]")) {
