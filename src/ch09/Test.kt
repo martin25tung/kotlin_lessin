@@ -35,9 +35,17 @@ fun main(args: Array<String>) {
 //        if (healthPoints == 100) "perfect health" else "has injuries"
 //    }
 
-    val nameTooLong = with("Polarcubis, Supreme Master of NyetHack") {
-        length >= 20
-    }
+//    val nameTooLong = with("Polarcubis, Supreme Master of NyetHack") {
+//        length >= 20
+//    }
+
+    var fileContents: List<String>
+    File("file.txt")
+        .also {
+            print(it.name)
+        }.also {
+            fileContents = it.readLines()
+        }
 }
 
 fun nameIsLong(name: String) = name.length >= 20
