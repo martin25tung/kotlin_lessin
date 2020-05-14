@@ -11,7 +11,7 @@ val patronList = listOf("Eli", "Mordoc", "Sophie")
 fun main(args: Array<String>) {
     placeOrder("shandy,Dragon's Breath, 5.91")
 
-    println(patronList.getOrElse(4){"Unknown Patron"})
+    println(patronList.getOrNull(4) ?: "Unknown Patron" )
 }
 
 fun performPurchase(price: Double) {
