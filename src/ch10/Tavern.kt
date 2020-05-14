@@ -7,6 +7,7 @@ const val TAVERN_NAME = "Taernyl's Folly"
 var playerGold = 10
 var playerSilver = 10
 val patronList = mutableListOf("Eli", "Mordoc", "Sophie")
+val readOnlyPatronList = patronList.toList()
 
 fun main(args: Array<String>) {
 
@@ -27,6 +28,7 @@ fun main(args: Array<String>) {
     println(patronList)
     patronList.remove("Eli")
     patronList.add("Alex")
+    patronList.add(0, "Alex")
     println(patronList)
 }
 
