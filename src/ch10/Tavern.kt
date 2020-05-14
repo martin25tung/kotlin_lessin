@@ -23,10 +23,11 @@ fun main(args: Array<String>) {
         println("The tavern master says: Nay, they departed hours ago.")
     }
 
-    placeOrder("shandy,Dragon's Breath, 5.91")
+//    placeOrder("shandy,Dragon's Breath, 5.91")
 
     patronList.forEachIndexed { index, patron ->
         println("Good evening, $patron - you're #${index + 1} in line.")
+        placeOrder(patron,"shandy,Dragon's Breath, 5.91")
     }
 }
 
@@ -52,27 +53,25 @@ private fun displayBalance(){
     println("Player's purse balance: Gold: ${ch08.playerGold} , Silver: ${ch08.playerSilver}")
 }
 
-private fun placeOrder(menuData: String) {
+private fun placeOrder(patronName:String, menuData: String) {
     val indexOfApostrophe = ch07.TAVERN_NAME.indexOf('\'')
     val tavernMaster = ch07.TAVERN_NAME.substring(0 until indexOfApostrophe)
-    println("Madrigal speaks with $tavernMaster about their order.")
+    println("$patronName speaks with $tavernMaster about their order.")
 
     val (type, name, price) = menuData.split(',')
-    val message = "Madrigal buys a $name ($type) for $price"
+    val message = "$patronName buys a $name ($type) for $price"
     println(message)
 
-    if (ch08.playerGold + (ch08.playerSilver / 100.0) > price.toDouble()) {
-        performPurchase(price.toDouble())
 
-        val phrase = if (name == "Dragon's Breath") {
-            "Madrigal exclaims ${toDragonSpeak("Ah, delicious $name")}"
-        } else {
-            "Madrigal says: Thanks for the $name"
-        }
-        println(phrase)
+//    performPurchase(price.toDouble())
+
+    val phrase = if (name == "Dragon's Breath") {
+        "$patronName exclaims ${toDragonSpeak("Ah, delicious $name")}"
     } else {
-        println("餘額不足")
+        "$patronName says: Thanks for the $name"
     }
+    println(phrase)
+
 }
 
 private fun toDragonSpeak(phrase: String) = phrase.replace(Regex("[aeiouAEIOU]")) {
