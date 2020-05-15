@@ -49,6 +49,8 @@ fun main(args: Array<String>) {
         placeOrder(uniquePatrons.shuffled().first(), menuList.shuffled().first())
         orderCount++
     }
+
+    println(listOf("Eli Baggins", "Eli Baggins", "Eli Ironfoot").toSet())
 }
 
 fun performPurchase(price: Double) {
