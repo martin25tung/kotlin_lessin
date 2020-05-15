@@ -11,6 +11,8 @@ val patronList = mutableListOf("Eli", "Mordoc", "Sophie")
 
 val planets = setOf("Merrcury", "Venus", "Earth", "Earth")
 
+val lastName = listOf ("Ironfoot", "Fernsworth", "Baggins")
+
 val menuList = File("data/tavern-menu-items.txt")
     .readText()
     .split("\n")
@@ -33,13 +35,11 @@ fun main(args: Array<String>) {
 
 //    placeOrder("shandy,Dragon's Breath, 5.91")
 
-    patronList.forEachIndexed { index, patron ->
-        println("Good evening, $patron - you're #${index + 1} in line.")
-        placeOrder(patron, menuList.shuffled().first())
-    }
-
-    menuList.forEachIndexed{ index, data ->
-        println("$index : $data")
+    (0..9).forEach{
+        val first = patronList.shuffled().first()
+        val last = lastName.shuffled().first()
+        val name = "$first $last"
+        println(name)
     }
 
     println(planets.elementAt(2))
