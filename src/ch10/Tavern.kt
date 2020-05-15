@@ -38,6 +38,8 @@ fun main(args: Array<String>) {
     menuList.forEachIndexed{ index, data ->
         println("$index : $data")
     }
+
+    val (goldMedal, _, bronzeMedal) = patronList    //通過使用_符號過濾不想要的元素
 }
 
 fun performPurchase(price: Double) {
