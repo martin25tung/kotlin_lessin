@@ -42,7 +42,7 @@ fun main(args: Array<String>) {
         println("$index : $data")
     }
 
-    println(planets.contains("Pluto"))
+    println(planets.elementAt(2))
 }
 
 fun performPurchase(price: Double) {
