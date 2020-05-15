@@ -9,7 +9,7 @@ var playerGold = 10
 var playerSilver = 10
 val patronList = mutableListOf("Eli", "Mordoc", "Sophie")
 
-val planets = setOf("Merrcury", "Venus", "Earth")
+val planets = setOf("Merrcury", "Venus", "Earth", "Earth")
 
 val menuList = File("data/tavern-menu-items.txt")
     .readText()
