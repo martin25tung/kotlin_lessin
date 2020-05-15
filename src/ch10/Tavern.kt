@@ -50,7 +50,7 @@ fun main(args: Array<String>) {
         orderCount++
     }
 
-    val patrons = listOf("Eli Baggins", "Eli Baggins", "Eli Ironfoot").toSet().toList()
+    val patrons = listOf("Eli Baggins", "Eli Baggins", "Eli Ironfoot").distinct()
     println(patrons[0])
 }
 
