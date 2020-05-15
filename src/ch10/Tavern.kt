@@ -17,6 +17,8 @@ val menuList = File("data/tavern-menu-items.txt")
     .readText()
     .split("\n")
 
+val uniquePatrons = mutableSetOf<String>()
+
 
 
 fun main(args: Array<String>) {
@@ -39,10 +41,10 @@ fun main(args: Array<String>) {
         val first = patronList.shuffled().first()
         val last = lastName.shuffled().first()
         val name = "$first $last"
-        println(name)
+        uniquePatrons += name
     }
 
-    println(planets.elementAt(2))
+    println(uniquePatrons)
 }
 
 fun performPurchase(price: Double) {
