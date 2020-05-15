@@ -8,11 +8,14 @@ const val TAVERN_NAME = "Taernyl's Folly"
 var playerGold = 10
 var playerSilver = 10
 val patronList = mutableListOf("Eli", "Mordoc", "Sophie")
-val readOnlyPatronList = patronList.toList()
+
+val planets = setOf("Merrcury", "Venus", "Earth")
 
 val menuList = File("data/tavern-menu-items.txt")
     .readText()
     .split("\n")
+
+
 
 fun main(args: Array<String>) {
 
@@ -39,7 +42,7 @@ fun main(args: Array<String>) {
         println("$index : $data")
     }
 
-    val (goldMedal, _, bronzeMedal) = patronList    //通過使用_符號過濾不想要的元素
+    println(planets)
 }
 
 fun performPurchase(price: Double) {
