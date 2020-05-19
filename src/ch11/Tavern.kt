@@ -19,18 +19,16 @@ val menuList = File("data/tavern-menu-items.txt")
 
 val uniquePatrons = mutableSetOf<String>()
 
-val patronGold = mapOf("Eli" to 10.5, "Mordoc" to 8.0, "Sophie" to 5.5)
-val patronGold2 = mapOf(Pair("Eli", 10.5), Pair("Mordoc", 8.0), Pair("Sophie", 5.5))
-val patronGold3 = mutableMapOf("Eli" to 5.0, "Sophie" to 1.0)
+val patronGold = mutableMapOf<String, Double>()
 
 fun main(args: Array<String>) {
-    if (ch10.patronList.contains("Eli")) {
+    if (patronList.contains("Eli")) {
         println("The tavern master says: Eli's in the back playing cards.")
     } else {
         println("The tavern master says: Eli isn't here.")
     }
 
-    if (ch10.patronList.containsAll(listOf("Sophie", "Mordoc"))){
+    if (patronList.containsAll(listOf("Sophie", "Mordoc"))){
         println("The tavern master says: Yea, they're seated by the stew kettle.")
     } else {
         println("The tavern master says: Nay, they departed hours ago.")
@@ -39,15 +37,19 @@ fun main(args: Array<String>) {
 //    placeOrder("shandy,Dragon's Breath, 5.91")
 
     (0..9).forEach{
-        val first = ch10.patronList.shuffled().first()
-        val last = ch10.lastName.shuffled().first()
+        val first = patronList.shuffled().first()
+        val last = lastName.shuffled().first()
         val name = "$first $last"
-        ch10.uniquePatrons += name
+        uniquePatrons += name
+    }
+
+    uniquePatrons.forEach{
+        patronGold[it] = 6.0
     }
 
     var orderCount = 0
     while (orderCount <= 9) {
-        placeOrder(ch10.uniquePatrons.shuffled().first(), ch10.menuList.shuffled().first())
+        placeOrder(uniquePatrons.shuffled().first(), menuList.shuffled().first())
         orderCount++
     }
 
@@ -55,20 +57,53 @@ fun main(args: Array<String>) {
     println(patrons[0])
 
     println(patronGold)
-    println(patronGold["Eli"])
-    println(patronGold["Mordoc"])
-    println(patronGold["Sophie"])
-    println(patronGold["aaa"])
-//    println(patronGold.getValue("aaa"))
-    println(patronGold.getOrElse("aaa"){ "No such patron"})
-    println(patronGold.getOrDefault("aaa", 0.0))
 
+    // = 賦值運算符
+    val patronGold2 = mutableMapOf("Mordoc" to 6.0)
+//    patronGold2["Mordoc"] = 5.0
+//    println(patronGold2)
 
+    // += 添加或更新鍵值對
+//    patronGold2 += "Eli" to 5.0
+//    println(patronGold2)
+
+//    patronGold2 += mapOf("Eli" to 7.0, "Mordoc" to 1.0, "Jebediah" to 4.5)
+//    println(patronGold2)
+
+    // put
+//    patronGold2.put("Mordoc", 5.0)
+//    println(patronGold2)
+
+    // putAll
+//    patronGold2.putAll(listOf("Jebediah" to 5.0, "Sahara" to 6.0))
+//    println(patronGold2["Jebediah"])
+//    println(patronGold2["Sahara"])
+
+    // getOrPut
+//    patronGold2.getOrPut("Randy"){5.0}
+//    println(patronGold2["Randy"])
+//    patronGold2.getOrPut("Randy"){10.0}
+//    println(patronGold2["Randy"])
+
+    // remove
+//    val mordocBalance = patronGold2.remove("Mordoc")
+//    println(patronGold2)
+//    println(mordocBalance)
+
+    // - 刪除指定元素運算符
+//    val newPatrons = mutableMapOf("Mordoc" to 6.0, "Jebediah" to 1.0) - "Mordoc"
+//    println(newPatrons)
+
+    // -= 刪除指定元素運算符
+//    mutableMapOf("Mordoc" to 6.0, "Jebediah" to 1.0) -= "Mordoc"
+
+    // clear
+    mutableMapOf("Mordoc" to 6.0, "Jebediah" to 1.0).clear()
 }
 
 fun performPurchase(price: Double) {
     displayBalance()
-    val totalPurse = ch08.playerGold + (ch08.playerSilver / 100.0)
+    val totalPurse = playerGold + (playerSilver / 100.0)
     println("Total purse: $totalPurse")
     println("Purchasing item for $price")
 
@@ -77,20 +112,20 @@ fun performPurchase(price: Double) {
 
     val remainingGold = remainingBalance.toInt()
     val remainingSilver = (remainingBalance % 1 * 100).roundToInt()
-    ch08.playerGold = remainingGold
-    ch08.playerSilver = remainingSilver
+    playerGold = remainingGold
+    playerSilver = remainingSilver
     displayBalance()
 
     println(5 - (12 * 0.125))
 }
 
 private fun displayBalance(){
-    println("Player's purse balance: Gold: ${ch08.playerGold} , Silver: ${ch08.playerSilver}")
+    println("Player's purse balance: Gold: ${playerGold} , Silver: ${playerSilver}")
 }
 
 private fun placeOrder(patronName:String, menuData: String) {
-    val indexOfApostrophe = ch07.TAVERN_NAME.indexOf('\'')
-    val tavernMaster = ch07.TAVERN_NAME.substring(0 until indexOfApostrophe)
+    val indexOfApostrophe = TAVERN_NAME.indexOf('\'')
+    val tavernMaster = TAVERN_NAME.substring(0 until indexOfApostrophe)
     println("$patronName speaks with $tavernMaster about their order.")
 
     val (type, name, price) = menuData.split(',')
