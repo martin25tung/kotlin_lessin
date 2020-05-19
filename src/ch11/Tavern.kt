@@ -55,10 +55,15 @@ fun main(args: Array<String>) {
     println(patrons[0])
 
     println(patronGold)
-    println(patronGold2)
+    println(patronGold["Eli"])
+    println(patronGold["Mordoc"])
+    println(patronGold["Sophie"])
+    println(patronGold["aaa"])
+//    println(patronGold.getValue("aaa"))
+    println(patronGold.getOrElse("aaa"){ "No such patron"})
+    println(patronGold.getOrDefault("aaa", 0.0))
 
-    patronGold3 += "Sophie" to 6.0
-    println(patronGold3)
+
 }
 
 fun performPurchase(price: Double) {
