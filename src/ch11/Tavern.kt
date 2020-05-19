@@ -21,6 +21,7 @@ val uniquePatrons = mutableSetOf<String>()
 
 val patronGold = mapOf("Eli" to 10.5, "Mordoc" to 8.0, "Sophie" to 5.5)
 val patronGold2 = mapOf(Pair("Eli", 10.5), Pair("Mordoc", 8.0), Pair("Sophie", 5.5))
+val patronGold3 = mutableMapOf("Eli" to 5.0, "Sophie" to 1.0)
 
 fun main(args: Array<String>) {
     if (ch10.patronList.contains("Eli")) {
@@ -55,6 +56,9 @@ fun main(args: Array<String>) {
 
     println(patronGold)
     println(patronGold2)
+
+    patronGold3 += "Sophie" to 6.0
+    println(patronGold3)
 }
 
 fun performPurchase(price: Double) {
