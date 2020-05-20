@@ -1,4 +1,6 @@
 package ch12
 
-class Student(val name: String) {
+class Student() {
+    val name: String
+        get() = "Madrigal"
 }
