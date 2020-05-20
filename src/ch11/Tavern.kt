@@ -5,8 +5,6 @@ import kotlin.math.roundToInt
 
 const val TAVERN_NAME = "Taernyl's Folly"
 
-var playerGold = 10
-var playerSilver = 10
 val patronList = mutableListOf("Eli", "Mordoc", "Sophie")
 
 val planets = setOf("Merrcury", "Venus", "Earth", "Earth")
@@ -58,69 +56,11 @@ fun main(args: Array<String>) {
 
     println(patronGold)
 
-    // = 賦值運算符
-    val patronGold2 = mutableMapOf("Mordoc" to 6.0)
-//    patronGold2["Mordoc"] = 5.0
-//    println(patronGold2)
-
-    // += 添加或更新鍵值對
-//    patronGold2 += "Eli" to 5.0
-//    println(patronGold2)
-
-//    patronGold2 += mapOf("Eli" to 7.0, "Mordoc" to 1.0, "Jebediah" to 4.5)
-//    println(patronGold2)
-
-    // put
-//    patronGold2.put("Mordoc", 5.0)
-//    println(patronGold2)
-
-    // putAll
-//    patronGold2.putAll(listOf("Jebediah" to 5.0, "Sahara" to 6.0))
-//    println(patronGold2["Jebediah"])
-//    println(patronGold2["Sahara"])
-
-    // getOrPut
-//    patronGold2.getOrPut("Randy"){5.0}
-//    println(patronGold2["Randy"])
-//    patronGold2.getOrPut("Randy"){10.0}
-//    println(patronGold2["Randy"])
-
-    // remove
-//    val mordocBalance = patronGold2.remove("Mordoc")
-//    println(patronGold2)
-//    println(mordocBalance)
-
-    // - 刪除指定元素運算符
-//    val newPatrons = mutableMapOf("Mordoc" to 6.0, "Jebediah" to 1.0) - "Mordoc"
-//    println(newPatrons)
-
-    // -= 刪除指定元素運算符
-//    mutableMapOf("Mordoc" to 6.0, "Jebediah" to 1.0) -= "Mordoc"
-
-    // clear
-    mutableMapOf("Mordoc" to 6.0, "Jebediah" to 1.0).clear()
 }
 
-fun performPurchase(price: Double) {
-    displayBalance()
-    val totalPurse = playerGold + (playerSilver / 100.0)
-    println("Total purse: $totalPurse")
-    println("Purchasing item for $price")
-
-    val remainingBalance = totalPurse - price
-    println("Remaining balance: ${"%.2f".format(remainingBalance)}")
-
-    val remainingGold = remainingBalance.toInt()
-    val remainingSilver = (remainingBalance % 1 * 100).roundToInt()
-    playerGold = remainingGold
-    playerSilver = remainingSilver
-    displayBalance()
-
-    println(5 - (12 * 0.125))
-}
-
-private fun displayBalance(){
-    println("Player's purse balance: Gold: ${playerGold} , Silver: ${playerSilver}")
+fun performPurchase(price: Double, patronName: String) {
+    val totalPurse = patronGold.getValue(patronName)
+    patronGold[patronName] = totalPurse - price
 }
 
 private fun placeOrder(patronName:String, menuData: String) {
@@ -133,7 +73,7 @@ private fun placeOrder(patronName:String, menuData: String) {
     println(message)
 
 
-//    performPurchase(price.toDouble())
+    performPurchase(price.toDouble(), patronName)
 
     val phrase = if (name == "Dragon's Breath") {
         "$patronName exclaims ${toDragonSpeak("Ah, delicious $name")}"
