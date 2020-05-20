@@ -7,6 +7,10 @@ class Player {
             field = value.trim()
         }
 
+    val healthPoints = 89
+    val isBlessed = true
+    val isImmortal = false
+
     fun castFireball(numFireball: Int = 2) =
         println("A glass of Fireball springs into existence.(x$numFireball)")
 }

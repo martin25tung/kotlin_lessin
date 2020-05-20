@@ -4,19 +4,10 @@ package ch12
 
 fun main(args: Array<String>) {
 
-    val healthPoints = 89
-    val isBlessed = true
-    val isImmortal = false
+
 
     val player = Player()
     player.castFireball()
-
-    val myD6 = Dice()
-    println(myD6.rolledValue)
-    println(myD6.rolledValue)
-    println(myD6.rolledValue)
-    
-
 
     // Aura
     val auraColor = auraColor(isBlessed, healthPoints, isImmortal)
