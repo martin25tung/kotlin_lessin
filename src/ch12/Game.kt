@@ -3,7 +3,7 @@ package ch12
 
 
 fun main(args: Array<String>) {
-    val name = "Madrigal"
+
     val healthPoints = 89
     val isBlessed = true
     val isImmortal = false
