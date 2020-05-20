@@ -4,8 +4,6 @@ package ch13
 
 fun main(args: Array<String>) {
 
-
-
     val player = Player("Madrigal")
     player.castFireball()
 
