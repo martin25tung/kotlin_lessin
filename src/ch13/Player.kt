@@ -1,15 +1,12 @@
 package ch13
 
-class Player(_name: String, _healthPoints: Int, _isBlessed: Boolean, _isImmortal: Boolean) {
+class Player(_name: String, var healthPoints: Int, var isBlessed: Boolean,
+             private val isImmortal: Boolean) {
     var name = _name
         get() = field.capitalize()
         private set(value) {
             field = value.trim()
         }
-
-    val healthPoints = _healthPoints
-    val isBlessed = _isBlessed
-    private val isImmortal = _isImmortal
 
     fun castFireball(numFireball: Int = 2) =
         println("A glass of Fireball springs into existence.(x$numFireball)")
