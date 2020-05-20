@@ -8,6 +8,8 @@ class Player(_name: String, var healthPoints: Int, var isBlessed: Boolean,
             field = value.trim()
         }
 
+    constructor(name: String) : this(name, healthPoints = 100, isBlessed = true, isImmortal = false)
+
     fun castFireball(numFireball: Int = 2) =
         println("A glass of Fireball springs into existence.(x$numFireball)")
 
