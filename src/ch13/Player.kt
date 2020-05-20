@@ -1,15 +1,16 @@
 package ch13
 
-class Player(_name: String, var healthPoints: Int, var isBlessed: Boolean,
-             private val isImmortal: Boolean) {
+class Player(
+    _name: String, var healthPoints: Int = 100, var isBlessed: Boolean,
+    private val isImmortal: Boolean
+) {
     var name = _name
         get() = field.capitalize()
         private set(value) {
             field = value.trim()
         }
 
-    constructor(name: String) : this(name, healthPoints = 100, isBlessed = true,
-        isImmortal = false) {
+    constructor(name: String) : this(name, isBlessed = true, isImmortal = false) {
         if (name.toLowerCase() == "kar") healthPoints = 40
     }
 
