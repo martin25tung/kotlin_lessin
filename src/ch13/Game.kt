@@ -3,7 +3,10 @@ package ch13
 
 fun main(args: Array<String>) {
 
-    val player = Player("Madrigal")
+    val player = Player(
+        "Madrigal", healthPoints = 100,
+        isImmortal = true, isBlessed = false
+    )
     player.castFireball()
 
     // Aura
