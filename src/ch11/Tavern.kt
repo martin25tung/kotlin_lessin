@@ -51,11 +51,14 @@ fun main(args: Array<String>) {
         orderCount++
     }
 
-    val patrons = listOf("Eli Baggins", "Eli Baggins", "Eli Ironfoot").distinct()
-    println(patrons[0])
+    displayPatronBalances()
 
-    println(patronGold)
+}
 
+private fun displayPatronBalances(){
+    patronGold.forEach{ patron, balance ->
+        println("$patron, balance: ${"%.2f".format(balance)}")
+    }
 }
 
 fun performPurchase(price: Double, patronName: String) {
