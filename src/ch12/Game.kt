@@ -11,9 +11,6 @@ fun main(args: Array<String>) {
     val player = Player()
     player.castFireball()
 
-    player.name = "estragon "
-    println(player.name + "TheBrave")
-
     // Aura
     val auraColor = auraColor(isBlessed, healthPoints, isImmortal)
 
