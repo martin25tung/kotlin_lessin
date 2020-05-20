@@ -11,6 +11,13 @@ fun main(args: Array<String>) {
     val player = Player()
     player.castFireball()
 
+    val myD6 = Dice()
+    println(myD6.rolledValue)
+    println(myD6.rolledValue)
+    println(myD6.rolledValue)
+    
+
+
     // Aura
     val auraColor = auraColor(isBlessed, healthPoints, isImmortal)
 
