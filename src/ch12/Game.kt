@@ -9,6 +9,7 @@ fun main(args: Array<String>) {
     val isImmortal = false
 
     val player = Player()
+    player.castFireball()
 
     // Aura
     val auraColor = auraColor(isBlessed, healthPoints, isImmortal)
