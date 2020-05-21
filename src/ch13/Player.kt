@@ -1,5 +1,7 @@
 package ch13
 
+import java.io.File
+
 class Player(
     _name: String, var healthPoints: Int = 100, var isBlessed: Boolean,
     private val isImmortal: Boolean
@@ -9,7 +11,7 @@ class Player(
         private set(value) {
             field = value.trim()
         }
-    val hometown: String
+    val hometown = selectHometown()
 
     init {
         require(healthPoints > 0, { "healthPoints must be greater than zero." })
@@ -37,4 +39,6 @@ class Player(
         in 15..74 -> "looks pretty hurt."
         else -> "is in awful condition!"
     }
+
+    private fun selectHometown() = File("data/towns.txt").readText().split("\n").shuffled().first()
 }
