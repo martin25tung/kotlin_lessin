@@ -9,6 +9,7 @@ class Player(
         private set(value) {
             field = value.trim()
         }
+    val hometown: String
 
     init {
         require(healthPoints > 0, { "healthPoints must be greater than zero." })
