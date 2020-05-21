@@ -16,6 +16,8 @@ fun main(args: Array<String>) {
     printPlayerStatus(player)
 
     player.auraColor()
+
+    val player2 = Player("", 0, true, false)
 }
 
 
