@@ -6,13 +6,12 @@ class Player2(_name: String, val health: Int ) {
     val race = "DWARF"
     var town = "Bavaria"
     val name = _name
-    val alignment: String
+    lateinit var alignment: String
     private var age = 0
 
     // 3. init初始化模塊的屬性給值和函數調用
     init {
         println("initializing player")
-        alignment = "GOOD"
     }
 
     // 4. 次構造函數的屬性給值和函數調用
@@ -20,6 +19,15 @@ class Player2(_name: String, val health: Int ) {
         town = "This Shire"
         println("constructor start")
     }
+
+    fun determineFate() {
+        alignment = "Good"
+    }
+
+    fun proclaimFate() {
+        if (::alignment.isInitialized) println(alignment)
+    }
+
 }
 
 fun main(args: Array<String>) {
