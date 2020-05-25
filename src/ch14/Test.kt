@@ -8,8 +8,8 @@ fun main(args: Array<String>) {
 
     var townSquare = TownSquare()
     var className = when(townSquare) {
-        is TownSquare -> "TownSquare"
         is Room -> "Room"
+        is TownSquare -> "TownSquare"
         else -> throw IllegalArgumentException()
     }
     println(className)
