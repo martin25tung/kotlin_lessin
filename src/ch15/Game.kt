@@ -5,6 +5,8 @@ fun main(args: Array<String>) {
     player.castFireball()
 
     printPlayerStatus(player)
+
+    Game.play()
 }
 
 private fun printPlayerStatus(player: Player) {
@@ -15,5 +17,11 @@ private fun printPlayerStatus(player: Player) {
 object Game {
     init {
         println("Welcome, adventurer.")
+    }
+
+    fun play() {
+        while (true) {
+            // Play NyetHack
+        }
     }
 }
