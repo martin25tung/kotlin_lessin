@@ -1,7 +1,8 @@
 package ch14
 
 open class Room(val name: String) {
-    fun description() = "Room: $name"
+    protected open val dangerLevel = 5
+    fun description() = "Room: $name\nDanger level: $dangerLevel"
     open fun load() = "Nothing much to see here..."
 }
 
