@@ -5,5 +5,5 @@ fun main(args: Array<String>) {
     println(room is TownSquare)
 
     var townSquare = TownSquare()
-    println(townSquare is TownSquare)
+    println(townSquare is Room)
 }
