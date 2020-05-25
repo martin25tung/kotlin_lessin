@@ -15,10 +15,6 @@ object Game {
         player.castFireball()
     }
 
-    val abandoneTownSquare = object : TownSquare() {
-        override fun load() = "You anticipate applause, but no one is here..."
-    }
-
     fun play() {
         while (true) {
             println(currentRoom.description())
