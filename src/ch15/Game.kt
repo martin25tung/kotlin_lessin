@@ -18,6 +18,11 @@ object Game {
     fun play() {
         while (true) {
             // Play NyetHack
+            println(currentRoom.description())
+            println(currentRoom.load())
+
+            // Player status
+            printPlayerStatus(player)
         }
     }
 
