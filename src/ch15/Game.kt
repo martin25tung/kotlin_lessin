@@ -1,27 +1,28 @@
 package ch15
 
-fun main(args: Array<String>) {
-    val player = Player("Madrigal")
-    player.castFireball()
 
-    printPlayerStatus(player)
+fun main(args: Array<String>) {
 
     Game.play()
 }
 
-private fun printPlayerStatus(player: Player) {
-    println("(Aura: ${player.auraColor()}) (Blessed: ${if (player.isBlessed) "YES" else "No"})")
-    println("${player.name} ${player.formatHealthStatus()}")
-}
-
 object Game {
+    private val player = Player("Madrigal")
+    private var currentRoom: Room = TownSquare()
+
     init {
         println("Welcome, adventurer.")
+        player.castFireball()
     }
 
     fun play() {
         while (true) {
             // Play NyetHack
         }
+    }
+
+    private fun printPlayerStatus(player: Player) {
+        println("(Aura: ${player.auraColor()}) (Blessed: ${if (player.isBlessed) "YES" else "No"})")
+        println("${player.name} ${player.formatHealthStatus()}")
     }
 }
