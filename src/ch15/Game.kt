@@ -32,4 +32,10 @@ object Game {
         println("(Aura: ${player.auraColor()}) (Blessed: ${if (player.isBlessed) "YES" else "No"})")
         println("${player.name} ${player.formatHealthStatus()}")
     }
+
+    private class GameInput(arg: String?) {
+        private val input = arg ?: ""
+        val command = input.split(" ")[0]
+        val argument = input.split(" ").getOrElse(1, { "" })
+    }
 }
