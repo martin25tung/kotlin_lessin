@@ -13,5 +13,7 @@ private fun printPlayerStatus(player: Player) {
 }
 
 object Game {
-
+    init {
+        println("Welcome, adventurer.")
+    }
 }
