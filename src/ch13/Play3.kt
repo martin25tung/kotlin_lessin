@@ -6,8 +6,8 @@ class Play3() {
     private fun firstLatter() = name[0]
     init {
         val healthBonus = health.times(3)
-        println(firstLatter())
         name = "Madrigal"
+        println(firstLatter())
     }
 }
 
