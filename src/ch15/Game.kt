@@ -24,7 +24,7 @@ object Game {
             printPlayerStatus(player)
 
             println("> Enter your command: ")
-            println("Last command: ${readLine()}")
+            println(GameInput(readLine()).processCommand())
         }
     }
 
