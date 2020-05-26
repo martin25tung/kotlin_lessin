@@ -3,8 +3,10 @@ package ch15
 
 fun main(args: Array<String>) {
 
-    println(Player("Madrigal") == Player("Madrigal"))
-    println(Coordinate(1, 0) == Coordinate(1, 0))
+    val coordinate = Coordinate(1, 0)
+    val motalCoordinate = coordinate.copy()
+    println(motalCoordinate.toString())
+
     Game.play()
 }
 
