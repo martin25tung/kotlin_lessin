@@ -13,6 +13,7 @@ object Game {
     init {
         println("Welcome, adventurer.")
         player.castFireball()
+        println(player.currentPosition.toString())
     }
 
     fun play() {
