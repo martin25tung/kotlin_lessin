@@ -3,6 +3,8 @@ package ch15
 
 fun main(args: Array<String>) {
 
+    println(Player("Madrigal") == Player("Madrigal"))
+    println(Coordinate(1, 0) == Coordinate(1, 0))
     Game.play()
 }
 
@@ -13,7 +15,6 @@ object Game {
     init {
         println("Welcome, adventurer.")
         player.castFireball()
-        println(player.currentPosition.toString())
     }
 
     fun play() {
