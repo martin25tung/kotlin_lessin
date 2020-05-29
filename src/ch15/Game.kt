@@ -54,11 +54,15 @@ object Game {
         fun processCommand() = when (command.toLowerCase()) {
             "move" -> move(argument)
             "quit" -> turnOFF()
+            "map" -> map()
+            "ring" -> ring()
             else -> commandNotFound()
         }
 
         private fun commandNotFound() = "I'm not quite sure what you're trying to do!"
     }
+
+    private fun ring() = currentRoom.ringBell()
 
     private fun move(directionInput: String) = try {
         val direction = Direction.valueOf(directionInput.toUpperCase())
@@ -74,7 +78,27 @@ object Game {
         "Invalid direction: $directionInput."
     }
 
-    private fun turnOFF(){
+    private fun turnOFF() {
         switch = false
+    }
+
+    private fun showMap() = println(
+        when (currentRoom.name) {
+            "Town Square" -> "X O O\nO O"
+            "Tavern" -> "O X O\nO O"
+            "Back Room" -> "O O X\nO O"
+            "Long Corridor" -> "O O O\nX O"
+            "Generic Room" -> "O O O\nO X"
+            else -> "none"
+        }
+    )
+
+    private fun map(): String {
+        var output = ""
+        worldMap.forEach { row ->
+            row.forEach { column -> output += if (column.name == currentRoom.name) "X " else "O " }
+            output += "\n"
+        }
+        return output
     }
 }
