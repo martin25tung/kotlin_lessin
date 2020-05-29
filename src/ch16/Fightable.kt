@@ -1,0 +1,10 @@
+package ch16
+
+interface Fightable {
+    var healthPoints: Int
+    val diceCount: Int
+    val diceSides: Int
+    val damageRoll: Int
+
+    fun attack(opponent: Fightable): Int
+}
