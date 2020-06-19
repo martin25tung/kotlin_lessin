@@ -33,4 +33,7 @@ fun main(args: Array<String>) {
         Coin(it.value * 3)
     }
     coin?.let { println(it.value) }
+
+    val fedora = lootBoxOne[1]
+    fedora?.let{ println(it.name) }
 }
