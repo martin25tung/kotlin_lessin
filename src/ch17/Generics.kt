@@ -1,6 +1,6 @@
 package ch17
 
-class LootBox<T : Loot>(item: T){
+class LootBox<T : Loot>(vararg item: T){
     var open = false
     private var loot: T = item
 
