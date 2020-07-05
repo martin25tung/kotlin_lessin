@@ -19,8 +19,6 @@ val uniquePatrons = mutableSetOf<String>()
 
 val patronGold = mutableMapOf<String, Double>()
 
-private fun <T> Iterable<T>.random(): T = this.shuffled().first()
-
 fun main(args: Array<String>) {
     if (patronList.contains("Eli")) {
         println("The tavern master says: Eli's in the back playing cards.")
