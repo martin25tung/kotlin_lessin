@@ -41,7 +41,7 @@ class Player(
         else -> "is in awful condition!"
     }
 
-    private fun selectHometown() = File("data/towns.txt").readText().split("\n").shuffled().first()
+    private fun selectHometown() = File("data/towns.txt").readText().split("\n").random()
 
     override val diceCount = 3
 
