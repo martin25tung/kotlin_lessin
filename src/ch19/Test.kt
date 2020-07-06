@@ -28,5 +28,16 @@ fun main(args: Array<String>) {
     }
     print(primes)
 
+    // 用zip合併兩個集合 用employees當鍵值
+    val employees = listOf("Denny", "Claudette", "Peter")
+    val shirtSize = listOf("large", "x-large", "medium")
+    val employeeShirtSizes = employees.zip(shirtSize).toMap()
+    println(employeeShirtSizes["Denny"])
 
+    // 用fold累加器
+    val foldedValue = listOf(1, 2, 3, 4).fold(0) { accumulator, number ->
+        println("Accumulated value: $accumulator")
+        accumulator + (number * 3)
+    }
+    println("Final value: $foldedValue")
 }
