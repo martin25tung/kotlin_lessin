@@ -1,5 +1,7 @@
 package ch19
 
+import kotlin.system.measureNanoTime
+
 fun main(args: Array<String>) {
     val animals = listOf("zebra", "giraffe", "elephant", "rat")
     val babies = animals.map{ animal -> "A baby $animal"}
@@ -50,6 +52,20 @@ fun main(args: Array<String>) {
     }.filter { it.isPrime() }.take(1000)
     println(oneThousandPrimes.elementAt(0))
 
+    val listInNanos = measureNanoTime {
+        val toList = (1..5000).toList().filter { it.isPrime() }.take(7919)
+        println(toList.size)
+    }
+
+    val sequenceInNanos = measureNanoTime {
+        val oneThousandPrimes = generateSequence(3){value ->
+            value + 1
+        }.filter { it.isPrime() }.take(1000)
+        println(oneThousandPrimes.elementAt(0))
+    }
+
+    println("List completed in $listInNanos ns")
+    println("Sequence completed in $sequenceInNanos ns")
 }
 
 // Extension to Int that determines whether a number is prime
