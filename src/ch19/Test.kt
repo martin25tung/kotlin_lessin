@@ -40,4 +40,24 @@ fun main(args: Array<String>) {
         accumulator + (number * 3)
     }
     println("Final value: $foldedValue")
+
+    // 從1到5000找出1000個質數
+    val toList = (1..5000).toList().filter { it.isPrime() }.take(1000)
+    println(toList.size)
+
+    val oneThousandPrimes = generateSequence(3){value ->
+        value + 1
+    }.filter { it.isPrime() }.take(1000)
+    println(oneThousandPrimes.elementAt(0))
+
+}
+
+// Extension to Int that determines whether a number is prime
+fun Int.isPrime(): Boolean {
+    (2 until this).map{
+        if (this % it == 0) {
+            return false // Not a prime!
+        }
+    }
+    return true
 }
