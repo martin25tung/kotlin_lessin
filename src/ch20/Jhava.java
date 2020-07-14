@@ -30,6 +30,10 @@ public class Jhava {
         return hitPoints;
     }
 
+    public void offerFood(){
+        Hero.handOverFood("pizza");
+    }
+
     public static void main(String[] args){
         System.out.println(Hero.makeProclamation());
     }
