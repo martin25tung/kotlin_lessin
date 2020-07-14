@@ -6,10 +6,19 @@ import org.jetbrains.annotations.Nullable;
 public class Jhava {
 
     private int hitPoints = 52489112;
+    private String greeting = "BLARGH";
 
     @NotNull
     public String utterGreeting(){
-        return "BLARGH";
+        return greeting;
+    }
+
+    public String getGreeting(){
+        return greeting;
+    }
+
+    public void setGreeting(String greeting){
+        this.greeting = greeting;
     }
 
     @Nullable
