@@ -14,3 +14,5 @@ fun main(args: Array<String>) {
     adversary.greeting = "Hello, Hero."
     println(adversary.utterGreeting())
 }
+
+fun makeProclamation() = "Greetings, beast!"
