@@ -1,3 +1,4 @@
+@file:JvmName("Hero")
 package ch20
 
 fun main(args: Array<String>) {
