@@ -8,5 +8,9 @@ fun main(args: Array<String>) {
     println(friendshipLevel?.toLowerCase() ?: "It's complicated.")
 
     val adversaryHitPints: Int = adversary.hitPoints
+    println(adversaryHitPints.dec())
     println(adversaryHitPints.javaClass)
+
+    adversary.greeting = "Hello, Hero."
+    println(adversary.utterGreeting())
 }
