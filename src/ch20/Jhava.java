@@ -5,7 +5,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class Jhava {
 
-    public int hitPoints = 52489112;
+    private int hitPoints = 52489112;
 
     @NotNull
     public String utterGreeting(){
@@ -15,5 +15,9 @@ public class Jhava {
     @Nullable
     public String determineFriendshipLevel() {
         return null;
+    }
+
+    public int getHitPoints(){
+        return hitPoints;
     }
 }
