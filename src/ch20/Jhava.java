@@ -36,5 +36,11 @@ public class Jhava {
 
     public static void main(String[] args){
         System.out.println(Hero.makeProclamation());
+
+        System.out.println("Spells:");
+        Spellbook spellbook = new Spellbook();
+        for (String spell: spellbook.spells){
+            System.out.println(spell);
+        }
     }
 }
