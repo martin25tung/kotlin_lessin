@@ -35,6 +35,7 @@ fun handOverFood(leftHand: String = "berries", rightHand: String = "beef"){
     println("Mmmm... you hand over some delicious $leftHand and $rightHand")
 }
 
+@Throws(IOException::class)
 fun acceptApology(){
     throw IOException()
 }
