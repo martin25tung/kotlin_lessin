@@ -16,6 +16,8 @@ fun main(args: Array<String>) {
     println(adversary.utterGreeting())
 
     adversary.offerFood()
+
+    adversary.extendHandInFriendship()
 }
 
 fun makeProclamation() = "Greetings, beast!"
