@@ -44,5 +44,6 @@ public class Jhava {
         }
 
         System.out.println("Max spell count: " + Spellbook.MAX_SPELL_COUNT);
+//        System.out.println("Max spell count: " + Spellbook.Companion.getMAX_SPELL_COUNT());
     }
 }
