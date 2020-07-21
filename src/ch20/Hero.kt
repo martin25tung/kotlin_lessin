@@ -1,6 +1,8 @@
 @file:JvmName("Hero")
 package ch20
 
+import java.lang.Exception
+
 fun main(args: Array<String>) {
     val adversary = Jhava()
     println(adversary.utterGreeting())
@@ -17,7 +19,12 @@ fun main(args: Array<String>) {
 
     adversary.offerFood()
 
-    adversary.extendHandInFriendship()
+    try {
+        adversary.extendHandInFriendship()
+    } catch (e: Exception){
+        println("Begone, foul beast!")
+    }
+
 }
 
 fun makeProclamation() = "Greetings, beast!"
