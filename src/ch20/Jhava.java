@@ -65,6 +65,6 @@ public class Jhava {
         Spellbook.getSpellbookGreeting();
 
         Function1<String, Unit> translator = Hero.getTranslator();
-
+        translator.invoke("TRUCE");
     }
 }
